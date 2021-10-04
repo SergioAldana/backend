@@ -27,4 +27,25 @@ public class EstudianteRestController {
         return estudianteService.guardar(estudiante);
     }
 
+    @DeleteMapping("/estudiante/{id}")
+    @ResponseStatus (HttpStatus.NO_CONTENT)
+    public void borrar(@PathVariable Long id) {
+        estudianteService.borrar(id);
+    }
+
+    @GetMapping("/estudiante/{id}")
+    public Estudiante encontrarPorId (@PathVariable Long id) {
+        return estudianteService.encontrarPorId(id);
+    }
+
+    @PutMapping("/estudiante/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Estudiante editar(@PathVariable Long id, @RequestBody Estudiante estudiante) {
+        Estudiante actual = estudianteService.encontrarPorId(id);
+        actual.setNombre(estudiante.getNombre());
+        actual.setApellido(estudiante.getApellido());
+        return estudianteService.guardar(actual);
+    }
+
+
 }

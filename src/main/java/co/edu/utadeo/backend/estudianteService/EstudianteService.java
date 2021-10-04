@@ -22,4 +22,15 @@ public class EstudianteService implements IEstudianteService {
 
     }
 
+    @Override
+    public void borrar(Long id) {
+        estudianteDAO.deleteById(id);
+    }
+
+    @Override
+    public Estudiante encontrarPorId(Long id) {
+        return estudianteDAO.findById(id).orElse(null);
+    }
+
+
 }
