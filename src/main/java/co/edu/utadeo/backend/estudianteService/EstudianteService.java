@@ -16,4 +16,10 @@ public class EstudianteService implements IEstudianteService {
         return estudianteDAO.findAll();
     }
 
+    @Override
+    public Estudiante guardar(Estudiante estudiante) {
+        return estudianteDAO.save(estudiante);
+
+    }
+
 }
