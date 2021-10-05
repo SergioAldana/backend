@@ -13,8 +13,8 @@ import java.util.List;
 public class EstudianteRestController {
 
     //Verificar porque agregando codigo a esta linea se resuelve el conflicto
-    @Autowired(required = false)
-    public IEstudianteService estudianteService;
+    @Autowired
+    private IEstudianteService estudianteService;
 
     @GetMapping("/estudiante")
     public List<Estudiante> listarEstudiantes() {
@@ -28,24 +28,23 @@ public class EstudianteRestController {
     }
 
     @DeleteMapping("/estudiante/{id}")
-    @ResponseStatus (HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void borrar(@PathVariable Long id) {
         estudianteService.borrar(id);
     }
 
     @GetMapping("/estudiante/{id}")
-    public Estudiante encontrarPorId (@PathVariable Long id) {
+    public Estudiante encontrarPorId(@PathVariable Long id) {
         return estudianteService.encontrarPorId(id);
     }
 
     @PutMapping("/estudiante/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public Estudiante editar(@PathVariable Long id, @RequestBody Estudiante estudiante) {
         Estudiante actual = estudianteService.encontrarPorId(id);
         actual.setNombre(estudiante.getNombre());
         actual.setApellido(estudiante.getApellido());
         return estudianteService.guardar(actual);
     }
-
 
 }

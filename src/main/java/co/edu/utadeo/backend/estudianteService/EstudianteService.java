@@ -3,9 +3,11 @@ package co.edu.utadeo.backend.estudianteService;
 import co.edu.utadeo.backend.modelEntity.Estudiante;
 import co.edu.utadeo.backend.modelsDAO.IEstudianteDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EstudianteService implements IEstudianteService {
 
     @Autowired
@@ -19,7 +21,6 @@ public class EstudianteService implements IEstudianteService {
     @Override
     public Estudiante guardar(Estudiante estudiante) {
         return estudianteDAO.save(estudiante);
-
     }
 
     @Override
@@ -31,6 +32,5 @@ public class EstudianteService implements IEstudianteService {
     public Estudiante encontrarPorId(Long id) {
         return estudianteDAO.findById(id).orElse(null);
     }
-
 
 }
