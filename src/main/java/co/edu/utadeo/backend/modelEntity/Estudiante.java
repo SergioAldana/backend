@@ -16,6 +16,10 @@ public class Estudiante implements Serializable {
     private String nombre;
     @Column
     private String apellido;
+    @Column
+    private Double promedio;
+    @Column
+    private String carrera;
 
     public Long getId() {
         return id;
@@ -40,5 +44,21 @@ public class Estudiante implements Serializable {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
+
+    public Double getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(Double promedio) {
+        this.promedio = promedio;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
 }

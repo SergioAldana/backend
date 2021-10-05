@@ -13,6 +13,7 @@ import java.util.List;
 public class EstudianteRestController {
 
     //Verificar porque agregando codigo a esta linea se resuelve el conflicto
+    //Probablemente halla sido por el @Service que me faltaba escribir en la clase EstudianteService
     @Autowired
     private IEstudianteService estudianteService;
 
@@ -44,6 +45,8 @@ public class EstudianteRestController {
         Estudiante actual = estudianteService.encontrarPorId(id);
         actual.setNombre(estudiante.getNombre());
         actual.setApellido(estudiante.getApellido());
+        actual.setPromedio(estudiante.getPromedio());
+        actual.setCarrera(estudiante.getCarrera());
         return estudianteService.guardar(actual);
     }
 
