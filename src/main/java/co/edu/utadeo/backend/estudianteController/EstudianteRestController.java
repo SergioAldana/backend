@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class EstudianteRestController {
 
     //Verificar porque agregando codigo a esta linea se resuelve el conflicto
